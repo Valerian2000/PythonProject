@@ -60,4 +60,4 @@ salaire_net = salaire_brute - taxes
 # Affichage du salaire brut de la taxe et du salaire net
 print(f"")
 print(f"Le salaire brut est de {int(salaire_brute)} dollars({int(salaire_brute*taux_echange)} Fc) et les taxes s'elevent à {int(taxes)} dollars({int(taxes*taux_echange)} Fc).\n \
-      Le salaire mensuel net est de {int(salaire_net)} dollars. ce qui équivaut à {int(salaire_net* taux_echange)} franc congolais.") 
+Le salaire mensuel net est de {int(salaire_net)} dollars. ce qui équivaut à {int(salaire_net* taux_echange)} franc congolais.") 
