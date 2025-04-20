@@ -21,6 +21,9 @@ while not IsPositiveInt(annee):
 
 if IsBissextile(annee):
     monthNomberOfDay[2]=29
+    print(f"L'année {annee} est bissextile.")
+else:
+    print(f"L'année {annee} n'est pas bissextile.")
     
      
 mois = input("Entrez un mois : ")
@@ -37,22 +40,24 @@ while not choix in ['annuel', 'mensuel']:
     choix = input("Entrez 'annuel' ou 'mensuel' : ").lower()
 
 
-
+print("Le nombre de jours de présence doit être un nombre entier pouvant aller jusqu'à une trentaine de jours.")
 presence = input("Entrez le nombre de jours de présence :")
 while not IsPositiveInt(presence) or int(presence) > monthNomberOfDay[int(numberMonth(mois))]:
     if not IsPositiveInt(presence):
         print("Le nombre de jours de présence doit être un nombre entier positif.")
     elif int(presence) < 0:
         print("Le nombre de jours de présence ne peut pas être négatif.")
-    elif int(presence) > monthNomberOfDay[numberMonth(mois)]:
-        print(f"Le mois {yearsMonth[numberMonth(mois)]} n'a pas autant de jours.")
-
-    print("Le nombre de jours de présence doit être un nombre entier positif.")
+    elif int(presence) > monthNomberOfDay[int(numberMonth(mois))]:
+        print(f"Le mois {yearsMonth[int(numberMonth(mois))]} n'a pas autant de jours.")
     presence = input("Entrez le nombre de jours de présence : ")
 
 
+# Calcul du salaire brut de la taxe et du salaire net
+salaire_brute = salaire_journalier * int(presence)
+taxes = salaire_brute * total_taxes/100 
+salaire_net = salaire_brute - taxes
 
-salaire_mensuel_brute = salaire_journalier * int(presence)
-salaire_mensuel_net = salaire_mensuel_brute*(1 - total_taxes/100) 
-
-print(f"Le salaire mensuel net est de {salaire_mensuel_net} dollars. ce qui équivaut à{salaire_mensuel_net* taux_echange}  ")
+# Affichage du salaire brut de la taxe et du salaire net
+print(f"")
+print(f"Le salaire brut est de {int(salaire_brute)} dollars({int(salaire_brute*taux_echange)} Fc) et les taxes s'elevent à {int(taxes)} dollars({int(taxes*taux_echange)} Fc).\n \
+      Le salaire mensuel net est de {int(salaire_net)} dollars. ce qui équivaut à {int(salaire_net* taux_echange)} franc congolais.") 
