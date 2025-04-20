@@ -11,8 +11,6 @@ from fonctionTools import numberMonth
 
 
 
-
-
 # Nous demandons à l'utilisateur d'entrer une année
 # et nous vérifions si c'est un entier positif
 # Si ca ne l'est pas le programme redemande une année correcte
